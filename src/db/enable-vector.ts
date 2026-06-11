@@ -8,9 +8,11 @@ if (!dbUrl) {
   process.exit(1);
 }
 
+const dbUrlString: string = dbUrl;
+
 async function enableVector() {
   console.log("Connecting to database and enabling vector extension...");
-  const sql = neon(dbUrl);
+  const sql = neon(dbUrlString);
   
   try {
     await sql`CREATE EXTENSION IF NOT EXISTS vector;`;
